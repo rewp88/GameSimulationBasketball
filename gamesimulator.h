@@ -1,0 +1,4 @@
+#ifndef GAMESIMULATOR_H
+#define GAMESIMULATOR_H
+
+#endif // GAMESIMULATOR_H

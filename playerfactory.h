@@ -1,0 +1,4 @@
+#ifndef PLAYERFACTORY_H
+#define PLAYERFACTORY_H
+
+#endif // PLAYERFACTORY_H

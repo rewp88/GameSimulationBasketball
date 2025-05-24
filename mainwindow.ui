@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Баскетбольный симулятор</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayoutMain">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="tabPosition">
+       <enum>QTabWidget::North</enum>
+      </property>
+      <!-- Вкладка Команды -->
+      <widget class="QWidget" name="tabTeams">
+       <attribute name="title">
+        <string>Команды</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutTeams">
+        <item>
+         <widget class="QTableView" name="teamsTable"/>
+        </item>
+        <item>
+         <layout class="QHBoxLayout">
+          <item><widget class="QPushButton" name="addTeamButton" ><property name="text"><string>Добавить команду</string></property></widget></item>
+          <item><widget class="QPushButton" name="editTeamButton" ><property name="text"><string>Редактировать</string></property></widget></item>
+          <item><widget class="QPushButton" name="deleteTeamButton" ><property name="text"><string>Удалить</string></property></widget></item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="teamInfoBox">
+          <property name="title"><string>Состав команды</string></property>
+          <layout class="QVBoxLayout">
+           <item><widget class="QTableView" name="teamPlayersTable"/></item>
+           <item>
+            <layout class="QHBoxLayout">
+             <item><widget class="QPushButton" name="addPlayerButton" ><property name="text"><string>Добавить игрока</string></property></widget></item>
+             <item><widget class="QPushButton" name="editPlayerButton" ><property name="text"><string>Редактировать игрока</string></property></widget></item>
+             <item><widget class="QPushButton" name="deletePlayerButton" ><property name="text"><string>Удалить игрока</string></property></widget></item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <!-- Вкладка Игроки -->
+      <widget class="QWidget" name="tabPlayers">
+       <attribute name="title">
+        <string>Игроки</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutPlayers">
+        <item>
+         <widget class="QTableView" name="playersTable"/>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="playerStatsBox">
+          <property name="title"><string>Статистика игрока</string></property>
+          <layout class="QVBoxLayout">
+           <item><widget class="QLabel" name="playerStatsLabel"/></item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <!-- Вкладка Матчи -->
+      <widget class="QWidget" name="tabMatches">
+       <attribute name="title">
+        <string>Матчи</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutMatches">
+        <item>
+         <widget class="QTableView" name="matchesTable"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="simulateMatchButton" >
+          <property name="text"><string>Симулировать матч</string></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="matchInfoBox">
+          <property name="title"><string>Детали матча</string></property>
+          <layout class="QVBoxLayout">
+           <item><widget class="QLabel" name="matchDetailsLabel"/></item>
+           <item><widget class="QListWidget" name="matchEventsList"/></item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <!-- Вкладка Турниры -->
+      <widget class="QWidget" name="tabTournaments">
+       <attribute name="title">
+        <string>Турниры</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutTournaments">
+        <item>
+         <widget class="QTableView" name="tournamentTable"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="simulateTournamentButton" >
+          <property name="text"><string>Симулировать турнир</string></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="tournamentInfoBox">
+          <property name="title"><string>Турнирная таблица</string></property>
+          <layout class="QVBoxLayout">
+           <item><widget class="QTableView" name="standingsTable"/></item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar"/>
+  <widget class="QToolBar" name="mainToolBar"/>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
