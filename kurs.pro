@@ -9,11 +9,26 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    basketballteam.cpp \
+    gamesimulator.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    match.cpp \
+    player.cpp \
+    playerfactory.cpp \
+    standings.cpp \
+    standingsobserver.cpp
 
 HEADERS += \
-    mainwindow.h
+    basketballteam.h \
+    gamesimulator.h \
+    mainwindow.h \
+    match.h \
+    observer.h \
+    player.h \
+    playerfactory.h \
+    standings.h \
+    standingsobserver.h
 
 FORMS += \
     mainwindow.ui
