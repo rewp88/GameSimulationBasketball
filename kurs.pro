@@ -14,6 +14,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     match.cpp \
+    matchlogdialog.cpp \
     player.cpp \
     playerfactory.cpp \
     standings.cpp \
@@ -24,6 +25,7 @@ HEADERS += \
     gamesimulator.h \
     mainwindow.h \
     match.h \
+    matchlogdialog.h \
     observer.h \
     player.h \
     playerfactory.h \

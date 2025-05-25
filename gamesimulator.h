@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "match.h"
+#include "matchlogdialog.h"
 #include <cstdlib>
 #include <ctime>
 
