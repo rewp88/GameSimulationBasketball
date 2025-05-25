@@ -4,17 +4,16 @@
 #include <QMainWindow>
 #include <QStandardItemModel>
 #include <QVector>
+#include "basketballteam.h"
+#include "match.h"
+#include "standings.h"
+#include "standingsobserver.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
 }
 QT_END_NAMESPACE
-
-class BasketballTeam;
-class Match;
-class Standings;
-class StandingsObserver;
 
 class MainWindow : public QMainWindow
 {
@@ -23,6 +22,12 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
+
+private slots:
+    void onAddTeam();
+    void onAddPlayer();
+    void onSimulateMatch();
+    void onTeamSelectionChanged(const QModelIndex& current, const QModelIndex& previous);
 
 private:
     Ui::MainWindow *ui;
@@ -38,6 +43,11 @@ private:
     Standings* m_standings;
     StandingsObserver* m_standingsObserver;
 
+    void updateTeamsView();
+    void updatePlayersView(BasketballTeam* team);
+    void updateMatchesView();
+    void updateStandingsView();
+    void createMatches();
     int m_currentMatchIndex = 0;
 };
 
