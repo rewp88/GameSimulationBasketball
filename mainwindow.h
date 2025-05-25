@@ -15,8 +15,7 @@ class MainWindow;
 }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow {
     Q_OBJECT
 
 public:
@@ -40,7 +39,7 @@ private:
     QVector<BasketballTeam*> m_teams;
     QVector<Match*> m_matches;
 
-    Standings* m_standings;
+    Standings m_standings;
     StandingsObserver* m_standingsObserver;
 
     void updateTeamsView();

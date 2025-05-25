@@ -2,204 +2,181 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>1100</width>
-    <height>700</height>
-   </rect>
-  </property>
   <property name="windowTitle">
-   <string>Баскетбольный симулятор</string>
+   <string>Basketball Simulator</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+    QMainWindow {
+        background-color: #121212;
+        color: #f0f0f0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 12pt;
+    }
+    QGroupBox {
+        border: none;
+        margin-top: 1.5em;
+        padding: 0 10px 10px 10px;
+        background-color: #1e1e1e;
+        color: #ff6600;
+        font-weight: bold;
+        font-size: 14pt;
+    }
+    QGroupBox::title {
+        subcontrol-origin: margin;
+        subcontrol-position: top center;
+        padding: 0 5px;
+        color: #ff6600;
+        background-color: transparent;
+    }
+    QPushButton {
+        background-color: #ff6f00;
+        color: #fff;
+        border-radius: 8px;
+        padding: 8px 16px;
+        font-weight: 700;
+        border: none;
+    }
+    QPushButton:hover {
+        background-color: #ff8f00;
+    }
+    QTableView {
+        background-color: #1e1e1e;
+        color: #fff;
+        border: none;
+        gridline-color: #333333;
+        selection-background-color: #ff8f00;
+        selection-color: #000;
+        outline: 0;
+    }
+    QHeaderView::section {
+        background-color: #ff6f00;
+        color: #fff;
+        padding: 6px;
+        border: none;
+        font-weight: 700;
+    }
+    QTableView::item {
+        border-bottom: 1px solid #333333;
+    }
+    QTableView::item:selected {
+        background-color: #ff8f00;
+        color: #000;
+    }
+    QScrollBar:vertical {
+        background: #121212;
+        width: 12px;
+        margin: 15px 3px 15px 3px;
+        border-radius: 6px;
+    }
+    QScrollBar::handle:vertical {
+        background: #ff6f00;
+        min-height: 20px;
+        border-radius: 6px;
+    }
+    QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+        height: 15px;
+        background: none;
+        border: none;
+    }
+    QStatusBar {
+        background-color: #1e1e1e;
+        color: #ffb74d;
+        border-top: 1px solid #ff6f00;
+    }
+   </string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayoutMain">
+   <layout class="QHBoxLayout" name="horizontalLayoutMain">
     <item>
-     <widget class="QTabWidget" name="tabWidget">
-      <property name="tabPosition">
-       <enum>QTabWidget::North</enum>
-      </property>
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-      <widget class="QWidget" name="tabTeams">
-       <attribute name="title">
-        <string>Команды</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayoutTeams">
-        <item>
-         <widget class="QTableView" name="teamsTable"/>
-        </item>
-        <item>
-         <layout class="QHBoxLayout">
+     <widget class="QWidget" name="leftPanel">
+      <layout class="QVBoxLayout" name="verticalLayoutLeft">
+       <item>
+        <widget class="QGroupBox" name="teamsGroupBox">
+         <property name="title">
+          <string>Команды</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayoutTeamsGroup">
           <item>
-           <widget class="QPushButton" name="addTeamButton">
-            <property name="text">
-             <string>Добавить команду</string>
-            </property>
-           </widget>
+           <widget class="QTableView" name="teamsList"/>
           </item>
           <item>
-           <widget class="QPushButton" name="editTeamButton">
-            <property name="text">
-             <string>Редактировать</string>
-            </property>
-           </widget>
+           <layout class="QHBoxLayout" name="horizontalLayoutTeamButtons">
+            <item>
+             <widget class="QPushButton" name="addTeamButton">
+              <property name="text">
+               <string>Добавить команду</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="addPlayerButton">
+              <property name="text">
+               <string>Добавить игрока</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="playersGroupBox">
+         <property name="title">
+          <string>Игроки команды</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayoutPlayersGroup">
+          <item>
+           <widget class="QTableView" name="playersTable"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+
+    <item>
+     <widget class="QWidget" name="rightPanel">
+      <layout class="QVBoxLayout" name="verticalLayoutRight">
+       <item>
+        <widget class="QGroupBox" name="matchesGroupBox">
+         <property name="title">
+          <string>Матчи</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayoutMatchesGroup">
+          <item>
+           <widget class="QTableView" name="matchesTable"/>
           </item>
           <item>
-           <widget class="QPushButton" name="deleteTeamButton">
+           <widget class="QPushButton" name="simulateMatchButton">
             <property name="text">
-             <string>Удалить</string>
+             <string>Симулировать матч</string>
             </property>
            </widget>
           </item>
          </layout>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="teamInfoBox">
-          <property name="title">
-           <string>Состав команды</string>
-          </property>
-          <layout class="QVBoxLayout">
-           <item>
-            <widget class="QTableView" name="teamPlayersTable"/>
-           </item>
-           <item>
-            <layout class="QHBoxLayout">
-             <item>
-              <widget class="QPushButton" name="addPlayerButton">
-               <property name="text">
-                <string>Добавить игрока</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="editPlayerButton">
-               <property name="text">
-                <string>Редактировать игрока</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="deletePlayerButton">
-               <property name="text">
-                <string>Удалить игрока</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="tabPlayers">
-       <attribute name="title">
-        <string>Игроки</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayoutPlayers">
-        <item>
-         <widget class="QTableView" name="playersTable"/>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="playerStatsBox">
-          <property name="title">
-           <string>Статистика игрока</string>
-          </property>
-          <layout class="QVBoxLayout">
-           <item>
-            <widget class="QLabel" name="playerStatsLabel"/>
-           </item>
-          </layout>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="tabMatches">
-       <attribute name="title">
-        <string>Матчи</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayoutMatches">
-        <item>
-         <widget class="QTableView" name="matchesTable"/>
-        </item>
-        <item>
-         <widget class="QPushButton" name="simulateMatchButton">
-          <property name="text">
-           <string>Симулировать матч</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="matchInfoBox">
-          <property name="title">
-           <string>Детали матча</string>
-          </property>
-          <layout class="QVBoxLayout">
-           <item>
-            <widget class="QLabel" name="matchDetailsLabel"/>
-           </item>
-           <item>
-            <widget class="QListWidget" name="matchEventsList"/>
-           </item>
-          </layout>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="tabTournaments">
-       <attribute name="title">
-        <string>Турниры</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayoutTournaments">
-        <item>
-         <widget class="QTableView" name="tournamentTable"/>
-        </item>
-        <item>
-         <widget class="QPushButton" name="simulateTournamentButton">
-          <property name="text">
-           <string>Симулировать турнир</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="tournamentInfoBox">
-          <property name="title">
-           <string>Турнирная таблица</string>
-          </property>
-          <layout class="QVBoxLayout">
-           <item>
-            <widget class="QTableView" name="standingsTable"/>
-           </item>
-          </layout>
-         </widget>
-        </item>
-       </layout>
-      </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="standingsGroupBox">
+         <property name="title">
+          <string>Турнирная таблица</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayoutStandingsGroup">
+          <item>
+           <widget class="QTableView" name="standingsTable"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1100</width>
-     <height>25</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
+  <widget class="QMenuBar" name="menubar"/>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>

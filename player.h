@@ -1,6 +1,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include <QString>
+
 class Player {
 public:
     Player(int id, const QString& name, float speed, float accuracy, float stamina);
