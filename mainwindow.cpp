@@ -70,8 +70,11 @@ void MainWindow::onAddTeam()
     BasketballTeam* team = new BasketballTeam(m_teams.size(), name, 50, 50, 50);
     m_teams.append(team);
 
+    m_standings.addTeam(team);
+
     updateTeamsView();
     createMatches();
+    updateStandingsView();
 }
 
 void MainWindow::onAddPlayer()
@@ -158,6 +161,10 @@ void MainWindow::createMatches()
     qDeleteAll(m_matches);
     m_matches.clear();
 
+    m_standings.clear();
+    for (BasketballTeam* team : m_teams)
+        m_standings.addTeam(team);
+
     for (int i = 0; i < m_teams.size(); ++i)
     {
         for (int j = i + 1; j < m_teams.size(); ++j)
@@ -165,6 +172,7 @@ void MainWindow::createMatches()
             Match* match = new Match(m_matches.size(), m_teams[i], m_teams[j], QDateTime::currentDateTime(), this);
             connect(match, &Match::matchFinished, m_standingsObserver, &StandingsObserver::onMatchFinished);
             m_matches.append(match);
+            connect(match, &Match::matchFinished, this, &MainWindow::updateStandingsView);
         }
     }
 
