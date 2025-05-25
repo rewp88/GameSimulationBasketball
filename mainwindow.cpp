@@ -14,6 +14,19 @@ MainWindow::MainWindow(QWidget *parent)
     , m_standingsObserver(nullptr)
 {
     ui->setupUi(this);
+
+    ui->teamsList->verticalHeader()->hide();
+    ui->playersTable->verticalHeader()->hide();
+    ui->matchesTable->verticalHeader()->hide();
+    ui->standingsTable->verticalHeader()->hide();
+
+    ui->teamsList->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->playersTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->matchesTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->standingsTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->standingsTable->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+
     m_teamsModel = new QStandardItemModel(this);
     m_teamsModel->setHorizontalHeaderLabels({"Команды"});
     ui->teamsList->setModel(m_teamsModel);
